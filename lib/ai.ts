@@ -28,7 +28,7 @@ export async function extractActionItems(input: string): Promise<{ task: string,
       model: NIM_MODEL,
       messages: [
         { role: "system", content: "Extract action items only. Return strict JSON array: [{task,owner,dueDate}]." },
-        { role: "user", content: \`Meeting notes:\n\${input}\` }
+        { role: "user", content: 'Meeting notes:\n' + input }
       ],
       temperature: 0.2,
       response_format: { type: "json_object" }
@@ -61,7 +61,7 @@ export async function extractActionItems(input: string): Promise<{ task: string,
       model: NIM_MODEL,
       messages: [
         { role: "system", content: "Return strict JSON keys: summary, actionItems[{task,owner,dueDate}], decisions[], risks[]." },
-        { role: "user", content: `Summarize meeting notes:\n${input}` }
+        { role: "user", content: 'Summarize meeting notes:\n' + input }
       ],
       temperature: 0.2,
       response_format: { type: "json_object" }
@@ -88,7 +88,7 @@ export async function answerQuestion(context: string, question: string, citation
       model: NIM_MODEL,
       messages: [
         { role: "system", content: "Answer in 4 concise actionable bullets, grounded only in provided context." },
-        { role: "user", content: `Context:\n${context}\n\nQuestion:\n${question}` }
+        { role: "user", content: 'Context:\n' + context + '\n\nQuestion:\n' + question }
       ],
       temperature: 0.2
     })
