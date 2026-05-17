@@ -40,7 +40,7 @@ export async function extractActionItems(input: string): Promise<{ task: string,
   const parsed = JSON.parse(data.choices[0].message.content);
   return z.array(z.object({ task: z.string(), owner: z.string(), dueDate: z.string() })).parse(parsed.actionItems || parsed);
 }
-
+export async function summarizeMeeting(input: string): Promise<MeetingSummary> {
   if (!hasRealModel()) {
     return {
       summary: "Team aligned on event readiness, room booking, and outreach urgency. Immediate focus is timeline lock and visibility push.",
