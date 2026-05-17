@@ -15,7 +15,7 @@ export default function MeetingsPage() {
   const run = async () => {
     setLoading(true); setError(""); setResult(null); setAdded(false);
     try {
-      const res = await fetch("/api/summarize", { method: "POST", body: JSON.stringify({ notes }) });
+      const res = await fetch("/api/summarize", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ notes }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed");
       setResult(data);

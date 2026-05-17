@@ -11,7 +11,7 @@ export default function KnowledgePage() {
 
   const ask = async () => {
     setLoading(true); setError(""); setA("");
-    const res = await fetch("/api/ask", { method: "POST", body: JSON.stringify({ question: q, docs }) });
+    const res = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q, docs }) });
     const data = await res.json();
     if (!res.ok) {
       setError(data.error || "Failed");
