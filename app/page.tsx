@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="mx-auto max-w-6xl px-6 py-20">
       <div className="grid gap-12 md:grid-cols-2 md:items-center">
         <div>
-          <p className="badge mb-4">UOE Summer of Code 2026 Submission</p>
+          <p className="badge mb-4"></p>
           <h1 className="text-4xl font-bold tracking-tight text-slate-900">CampusOps AI</h1>
           <p className="mt-4 text-lg text-slate-600">An AI-powered operations workspace for student teams to plan work, summarize meetings, and answer questions from internal docs.</p>
           <div className="mt-8 flex gap-3">
@@ -13,12 +13,12 @@ export default function HomePage() {
           </div>
         </div>
         <div className="card p-6">
-          <h2 className="text-xl font-semibold">Why judges like this</h2>
+          <h2 className="text-xl font-semibold">Product Features</h2>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
-            <li>Real AI workflow with structured outputs.</li>
-            <li>Clean, responsive UX with full vertical flow.</li>
-            <li>Scalable architecture with API-first design.</li>
-            <li>Submission-ready docs and demo artifacts.</li>
+            <li>AI-driven meeting summarization for automated action tracking.</li>
+            <li>Interactive task boards for team sprints and progress updates.</li>
+            <li>Smart Knowledge Base powered by RAG and semantic search.</li>
+            <li>Deadline timeline tracking to keep every project on schedule.</li>
           </ul>
         </div>
       </div>
