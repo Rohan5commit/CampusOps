@@ -1,0 +1,12 @@
+# Final Submission Checklist
+- [x] Source code and local setup instructions.
+- [x] `.env.example` with AI config variables.
+- [x] Complete UI flow: landing, dashboard, tasks, meetings, knowledge, deadlines.
+- [x] API routes for summarize, ask, action-item extraction with validation.
+- [x] Deterministic fallback mode if no model key.
+- [x] Structured output parsing and schema validation.
+- [x] Retrieval grounding + citations for knowledge answers.
+- [x] Demo script, slides outline, architecture, roadmap, impact analysis.
+- [x] `npm run typecheck` passes.
+- [x] `npm run build` passes.
+- [ ] Public deployed URL (run in network-valid environment with active Vercel token).
