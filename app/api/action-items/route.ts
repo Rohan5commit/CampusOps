@@ -1,4 +1,4 @@
-import { summarizeMeeting } from "@/lib/ai";
+import { extractActionItems } from "@/lib/ai";
 
 export async function POST(req: Request) {
   try {
@@ -6,8 +6,8 @@ export async function POST(req: Request) {
     if (!notes || typeof notes !== "string") {
       return Response.json({ error: "Invalid notes" }, { status: 400 });
     }
-    const data = await summarizeMeeting(notes);
-    return Response.json({ actionItems: data.actionItems });
+    const data = await extractActionItems(notes);
+    return Response.json({ actionItems: data });
   } catch {
     return Response.json({ error: "Failed to extract" }, { status: 500 });
   }
