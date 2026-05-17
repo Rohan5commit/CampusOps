@@ -1,4 +1,6 @@
 # Demo Script (6 minutes)
+**Live URL: [https://campusops-ai.vercel.app](https://campusops-ai.vercel.app)**
+
 1. Landing page (30s): Explain student ops pain and CampusOps AI value.
 2. Workspace overview (45s): Show KPI cards including urgent, overdue, completed.
 3. Task board (60s): Add a task live, move status across columns.

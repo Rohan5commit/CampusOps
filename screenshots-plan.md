@@ -1,7 +1,8 @@
-# Screenshot Capture Plan
-1. Landing hero section.
-2. Workspace overview cards.
-3. Task board columns.
-4. Meeting summarization result.
-5. Document Q&A answer panel.
-6. Deadlines timeline list.
+# Captured Screenshots
+The following evidence has been captured from the production deployment:
+- `screenshot_hero.png`: Landing hero section.
+- `screenshot_dashboard.png`: Workspace overview cards.
+- `screenshot_tasks.png`: Task board columns.
+- `screenshot_meetings.png`: Meeting summarization result.
+- `screenshot_knowledge.png`: Document Q&A answer panel.
+- `screenshot_deadlines.png`: Deadlines timeline list.

@@ -2,6 +2,8 @@
 
 CampusOps AI is an AI-powered operations assistant for student teams, clubs, and small organizations.
 
+**Live Demo: [https://campusops-ai.vercel.app](https://campusops-ai.vercel.app)**
+
 ## What it does
 - Manage tasks, deadlines, owners, and project progress.
 - Summarize meeting notes with structured outputs.

@@ -1,4 +1,6 @@
 # UOE Summer of Code 2026 Submission Description
+**Live URL: [https://campusops-ai.vercel.app](https://campusops-ai.vercel.app)**
+
 CampusOps AI is an AI operations copilot for student teams and clubs. It centralizes tasks, deadlines, meeting notes, and organizational knowledge in one workspace. AI generates concise meeting summaries, extracts accountable action items, and answers questions grounded in uploaded documentation.
 
 The submission is optimized for judging criteria:

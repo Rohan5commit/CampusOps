@@ -9,4 +9,4 @@
 - [x] Demo script, slides outline, architecture, roadmap, impact analysis.
 - [x] `npm run typecheck` passes.
 - [x] `npm run build` passes.
-- [ ] Public deployed URL (run in network-valid environment with active Vercel token).
+- [x] Public deployed URL (run in network-valid environment with active Vercel token).
