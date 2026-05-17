@@ -25,7 +25,7 @@ export default function MeetingsPage() {
 
   return <section className="space-y-4"><h1 className="text-2xl font-bold">Meeting Notes AI Summary</h1>
     <textarea className="card min-h-52 w-full p-4" value={notes} onChange={(e)=>setNotes(e.target.value)} />
-    <button onClick={run} disabled={loading} className="rounded-lg bg-brand-500 px-4 py-2 font-medium text-white disabled:opacity-50">{loading?"Summarizing...":"Summarize <button onClick={run} className="rounded-lg bg-brand-500 px-4 py-2 font-medium text-white">{loading?"Summarizing...":"Summarize & Extract Actions"}</button> Extract Actions"}</button>
+    <button onClick={run} disabled={loading} className="rounded-lg bg-brand-500 px-4 py-2 font-medium text-white disabled:opacity-50">{loading?"Summarizing...":"Summarize & Extract Actions"}</button>
     {error && <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>}
     {loading && <p className="text-sm text-slate-500">AI is analyzing notes...</p>}
     {result && <div className="card space-y-4 p-4">
