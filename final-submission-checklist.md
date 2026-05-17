@@ -1,0 +1,11 @@
+# Final Submission Checklist
+- [x] Source code and setup instructions.
+- [x] Environment template.
+- [x] Architecture document.
+- [x] Submission description.
+- [x] Demo script.
+- [x] Slide outline.
+- [x] Screenshot plan.
+- [x] Roadmap.
+- [x] Impact analysis.
+- [ ] Deployed URL included (pending successful Vercel deployment).
