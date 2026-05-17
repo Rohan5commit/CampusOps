@@ -23,7 +23,7 @@ export async function extractActionItems(input: string): Promise<{ task: string,
 
   const res = await fetch(NIM_API_URL, {
     method: "POST",
-    headers: { Authorization: \`Bearer \${process.env.NIM_API_KEY}\`, "Content-Type": "application/json" },
+    headers: { 'Authorization': 'Bearer ' + process.env.NIM_API_KEY, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: NIM_MODEL,
       messages: [
