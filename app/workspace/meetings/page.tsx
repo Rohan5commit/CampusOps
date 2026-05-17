@@ -12,7 +12,10 @@ export default function MeetingsPage() {
   const [error, setError] = useState("");
   const [added, setAdded] = useState(false);
 
+  const isInvalid = notes.trim().length < 50;
+
   const run = async () => {
+    if (isInvalid) return;
     setLoading(true); setError(""); setResult(null); setAdded(false);
     try {
       const res = await fetch("/api/summarize", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ notes }) });
@@ -25,7 +28,9 @@ export default function MeetingsPage() {
 
   return <section className="space-y-4"><h1 className="text-2xl font-bold">Meeting Notes AI Summary</h1>
     <textarea className="card min-h-52 w-full p-4" value={notes} onChange={(e)=>setNotes(e.target.value)} />
-    <button onClick={run} disabled={loading || notes.trim().length < 50} className="rounded-lg bg-brand-500 px-4 py-2 font-medium text-white disabled:opacity-50">{loading ? "Summarizing..." : (notes.trim().length < 50 ? "Add at least 50 chars to summarize" : "Summarize {loading?"Summarizing...":"Summarize & Extract Actions"} Extract Actions")}</button>
+    <button onClick={run} disabled={loading || isInvalid} className="rounded-lg bg-brand-500 px-4 py-2 font-medium text-white disabled:opacity-50">
+      {loading ? "Summarizing..." : (isInvalid ? "Add at least 50 characters to summarize" : "Summarize & Extract Actions")}
+    </button>
     {error && <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>}
     {loading && <p className="text-sm text-slate-500">AI is analyzing notes...</p>}
     {result && <div className="card space-y-4 p-4">
