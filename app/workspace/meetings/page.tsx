@@ -2,25 +2,24 @@
 import { useState } from "react";
 import { meetingSeed } from "@/lib/demoData";
 import { MeetingSummary } from "@/lib/types";
+import { useTaskStore } from "@/lib/taskStore";
 
 export default function MeetingsPage() {
+  const { addActionItems } = useTaskStore();
   const [notes, setNotes] = useState(meetingSeed);
   const [result, setResult] = useState<MeetingSummary | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [added, setAdded] = useState(false);
 
   const run = async () => {
-    setLoading(true);
-    setError("");
-    setResult(null);
+    setLoading(true); setError(""); setResult(null); setAdded(false);
     try {
       const res = await fetch("/api/summarize", { method: "POST", body: JSON.stringify({ notes }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed");
       setResult(data);
-    } catch {
-      setError("Unable to summarize right now. Try again.");
-    }
+    } catch { setError("Unable to summarize right now. Try again."); }
     setLoading(false);
   };
 
@@ -34,6 +33,8 @@ export default function MeetingsPage() {
       <div><h3 className="font-semibold">Decisions</h3><ul className="list-disc pl-5">{result.decisions.map((d)=><li key={d}>{d}</li>)}</ul></div>
       <div><h3 className="font-semibold">Risks</h3><ul className="list-disc pl-5">{result.risks.map((r)=><li key={r}>{r}</li>)}</ul></div>
       <div><h3 className="font-semibold">Action Items</h3><div className="space-y-2">{result.actionItems.map((a,i)=><div key={i} className="rounded-lg border p-2 text-sm">{a.task} — <span className="font-medium">{a.owner}</span> ({a.dueDate})</div>)}</div></div>
+      <button className="rounded border px-3 py-2 text-sm" onClick={()=>{addActionItems(result.actionItems); setAdded(true);}}>Add action items to Task Board</button>
+      {added && <p className="text-sm text-emerald-700">Action items added to Task Board.</p>}
     </div>}
   </section>;
 }
