@@ -1,39 +1,38 @@
 # CampusOps AI
 
-AI-powered operations assistant for student teams and clubs.
+CampusOps AI is an AI-powered operations assistant for student teams, clubs, and small organizations.
 
-## Features
-- Workspace dashboard (priorities, progress, team view)
-- Task board and deadlines timeline
-- AI meeting summarization + action-item extraction
-- Document Q&A from seeded knowledge docs
-- Deterministic fallback outputs when model key is missing
+## What it does
+- Manage tasks, deadlines, owners, and project progress.
+- Summarize meeting notes with structured outputs.
+- Extract actionable items with due dates and ownership.
+- Answer questions from organizational docs with retrieval + source citations.
 
-## Tech Stack
-- Next.js 15 + TypeScript + Tailwind CSS
-- API routes for AI workflows
-- NVIDIA NIM endpoint integration
+## Stack
+- Next.js App Router + TypeScript + Tailwind CSS
+- Server API routes for AI workflows
+- NVIDIA NIM-compatible chat completion endpoint
+- Deterministic fallback mode when `NIM_API_KEY` is absent
 
-## Quick Start
+## Run locally
 ```bash
 npm install
 npm run dev
 ```
-Open http://localhost:3000.
+Open `http://localhost:3000`.
 
 ## Environment
-Copy `.env.example` to `.env.local` and configure `NIM_API_KEY`.
+Copy `.env.example` to `.env.local` and configure:
+- `NIM_API_KEY`
+- `NIM_API_URL`
+- `NIM_MODEL`
 
-## Routes
-- `/` landing
-- `/workspace` dashboard
-- `/workspace/tasks` task board
-- `/workspace/meetings` AI summaries
-- `/workspace/knowledge` document Q&A
-- `/workspace/deadlines` deadline view
+## Endpoints
+- `POST /api/summarize` → structured meeting summary JSON
+- `POST /api/action-items` → extracted action items JSON
+- `POST /api/ask` → concise answer + citation list
 
 ## Submission Assets
-See:
 - `architecture.md`
 - `submission-description.md`
 - `demo-script.md`

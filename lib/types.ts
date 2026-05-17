@@ -15,3 +15,8 @@ export type MeetingSummary = {
   decisions: string[];
   risks: string[];
 };
+
+export type AskResponse = {
+  answer: string;
+  citations: string[];
+};

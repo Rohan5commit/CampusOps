@@ -1,23 +1,26 @@
 # CampusOps AI Architecture
 
-## Stack
-- Next.js App Router + TypeScript + Tailwind
-- Server routes for AI workflows
-- Demo-seeded in-memory data for reliable hackathon demo
-
-## Flow
-1. UI pages collect tasks, notes, and questions.
-2. API routes call `lib/ai.ts`.
-3. If `NIM_API_KEY` is present, requests go to NVIDIA NIM model endpoint.
-4. If key is absent, deterministic fallback outputs keep features demoable.
+## System design
+1. Frontend pages collect tasks, notes, and user questions.
+2. API routes validate request shape and size.
+3. AI service layer executes structured summarization / Q&A.
+4. Retrieval utility ranks docs for grounded answers.
+5. UI renders concise outputs and citations.
 
 ## Components
-- `app/workspace/*`: product pages
-- `app/api/*`: summarization, action extraction, and Q&A endpoints
-- `lib/demoData.ts`: seeded workspace/tasks/docs
-- `lib/ai.ts`: AI + fallback logic
+- `app/workspace/*` — UI workflows and dashboard pages
+- `app/api/*` — backend API routes
+- `lib/ai.ts` — model integration + fallback logic
+- `lib/retrieval.ts` — keyword overlap ranking for RAG-lite
+- `lib/demoData.ts` — seeded demo workspace
 
-## Scalability
-- Replace demo data with Postgres + Prisma.
-- Add auth and multi-tenant workspace tables.
-- Add embeddings + vector retrieval for large document sets.
+## Reliability
+- Input validation in every AI API route
+- Deterministic fallback responses if no model key
+- Clear client-side loading and error states
+
+## Scale path
+- Replace seeded data with Postgres + Prisma data layer
+- Add auth + role-based access control
+- Replace simple retriever with embeddings + vector DB
+- Add async job queue for large document ingestion
