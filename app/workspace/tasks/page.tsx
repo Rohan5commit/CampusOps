@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useTaskStore } from "@/lib/taskStore";
+import { Task } from "@/lib/types";
 
 export default function TasksPage() {
   const { tasks, setStatus, addTask } = useTaskStore();
