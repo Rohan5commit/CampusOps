@@ -1,54 +1,21 @@
 # CampusOps AI
 
-CampusOps AI is an AI-powered operations assistant for student teams, clubs, and small organizations.
+AI-powered operations workspace for student teams to plan work, summarize meetings, and answer questions from internal docs.
 
-**Live Demo: [https://campusops-ai.vercel.app](https://campusops-ai.vercel.app)**
+## Screenshots
 
-## What it does
-- Manage tasks, deadlines, owners, and project progress.
-- Summarize meeting notes with structured outputs.
-- Extract actionable items with due dates and ownership.
-- Answer questions from organizational docs with retrieval + source citations.
-- Convert meeting action items directly into task board entries.
+| Workspace Overview | Meeting Summary | Task Board |
+| :--- | :--- | :--- |
+| ![Workspace](./screenshots/workspace.png) | ![Meeting Summary](./screenshots/meeting-summary.png) | ![Task Board](./screenshots/task-board.png) |
 
-## Stack
-- Next.js App Router + TypeScript + Tailwind CSS
-- Server API routes for AI workflows
-- NVIDIA NIM-compatible chat completion endpoint
-- Zod schema validation for structured AI responses
-- Deterministic fallback mode when `NIM_API_KEY` is absent
+## Features
+- AI-driven meeting summarization for automated action tracking.
+- Interactive task boards for team sprints and progress updates.
+- Smart Knowledge Base powered by RAG and semantic search.
+- Deadline timeline tracking to keep every project on schedule.
 
-## Run locally
-```bash
-npm install
-npm run dev
-```
-Open `http://localhost:3000`.
+## Architecture
+See [architecture.md](./architecture.md) for a detailed system overview.
 
-## Quality checks
-```bash
-npm run typecheck
-npm run test
-npm run build
-```
-
-## Environment
-Copy `.env.example` to `.env.local` and configure:
-- `NIM_API_KEY`
-- `NIM_API_URL`
-- `NIM_MODEL`
-
-## Endpoints
-- `POST /api/summarize` → structured meeting summary JSON
-- `POST /api/action-items` → extracted action items JSON
-- `POST /api/ask` → concise answer + citation list
-
-## Submission Assets
-- `architecture.md`
-- `submission-description.md`
-- `demo-script.md`
-- `slide-outline.md`
-- `screenshots-plan.md`
-- `roadmap.md`
-- `impact-analysis.md`
-- `final-submission-checklist.md`
+## Getting Started
+Deploy the project to Vercel and configure your NVIDIA NIM API key as an environment variable.
